@@ -1,11 +1,9 @@
-DROP USER IF EXISTS michael;
-CREATE USER michael WITH ENCRYPTED PASSWORD stonebreaker;
-
 DROP DATABASE IF EXISTS todo_app; 
+DROP USER IF EXISTS michael;
+CREATE USER michael WITH ENCRYPTED PASSWORD 'stonebreaker';
+
 CREATE DATABASE todo_app; 
-
 \c todo_app;
-
 
 
 CREATE TABLE tasks (
@@ -19,9 +17,9 @@ completed boolean
 
 
 ALTER TABLE tasks DROP COLUMN completed;
-ALTER TABLE tasks ADD COLUMN completed_at SET timestamp;
-ALTER TABLE tasks ADD COLUMN completed_at SET DEFAULT NULL;
-ALTER TABLE tasks ALTER COLUMN updated_at SET DEFUALT NOW();
+ALTER TABLE tasks ADD COLUMN completed_at timestamp;
+ALTER TABLE tasks ADD COLUMN completed_at DEFAULT NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT NOW();
 ALTER TABLE tasks ALTER COLUMN updated_at SET NOT NULL;
 
 
