@@ -24,7 +24,7 @@ ALTER TABLE tasks ALTER COLUMN updated_at SET NOT NULL;
 
 
 INSERT INTO tasks (title, description, created_at, updated_at, completed_at)
-VALUES('Study SQL','Complete this exercis', now(), now(),NULL);
+VALUES('Study SQL','Complete this exercis', NOW(), NOW(),NULL);
 
 
 INSERT INTO tasks (title, description)
@@ -32,7 +32,7 @@ VALUES('Study POSTgreSQL','Read all the documentation');
 
 SELECT title FROM tasks WHERE completed_at IS NULL;
 
-UPDATE tasks SET completed_at = now() WHERE title = 'Study SQL';
+UPDATE tasks SET completed_at = NOW() WHERE title = 'Study SQL';
 
 SELECT title, description FROM tasks WHERE completed_at IS NUll;
 
